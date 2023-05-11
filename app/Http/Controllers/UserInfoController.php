@@ -23,7 +23,7 @@ class UserInfoController extends Controller
         UserInfo::create([
             'name' => $request->name,
             'email'=>$request->email,
-            'other_info'=>json_encode($request->other_info),
+            'other_info'=>$request->other_info,
         ]);
         return redirect()->route('user.info.index')->with('success', 'Data has been saved');
       
@@ -39,7 +39,7 @@ class UserInfoController extends Controller
           $update_user_info->update([
              'name' => $request->name,
             'email'=>$request->email,
-            'other_info'=>json_encode($request->other_info),
+            'other_info'=>$request->other_info,
           ]);
         return redirect()->route('user.info.index')->with('success', 'Data has been updated');
     }

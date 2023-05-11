@@ -37,32 +37,19 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                         
+
 
                         <div class="mb-3">
 
 
                             <label for="other_info" class="form-label"> Other Info</label>
+                            <textarea name="other_info" class="form-control" rows="5">{!! isset($update_user_info) ? $update_user_info->other_info : '' !!}</textarea>
+                            @error('other_info')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
 
 
-                        </div>
-                          @isset($update_user_info)
-                           @php
-                                                $other_infos = json_decode($update_user_info->other_info);
-                                              
-                           @endphp
-                        <div id="inputFormRow">
-                            <div class="input-group mb-3">
-                               <input type="text" name="other_info[]" value="{{$update_user_info->other_info ?? old('other_info') }}" class="form-control"
-                                    autocomplete="off">
-                                <div class="input-group-append">
-                                    <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
-                                </div>
-                            </div>
-                        </div>
-                        @endisset
-                        <div id="newRow"></div>
-                        <button id="addRow" type="button" class="btn btn-info">Add Info</button>
 
                         <div class="text-end">
                             @if (isset($update_user_info))
