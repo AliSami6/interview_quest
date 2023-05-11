@@ -18,13 +18,13 @@
                         action="{{ isset($user_info) ? route('user.info.update', $user_info->id) : route('user.info.store') }}"
                         method="POST">
                         @csrf
-                        @isset($update_user_info)
-                            <input type="hidden" id="update_id" name="update_id" value="{{ $update_user_info->id }}">
+                        @isset($user_info)
+                            @method('PUT')
                         @endisset
                         <div class="mb-3">
                             <label for="name" class="form-label"> Name</label>
                             <input type="text" name="name" class="form-control" id="name"
-                                value="{{ $update_user_info->name ?? old('name') }}">
+                                value="{{ $user_info->name ?? old('name') }}">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -32,7 +32,7 @@
                         <div class="mb-3">
                             <label for="email" class="form-label"> Email</label>
                             <input type="email" name="email" class="form-control" id="email"
-                                value="{{ $update_user_info->email ?? old('email') }}">
+                                value="{{ $user_info->email ?? old('email') }}">
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -43,7 +43,7 @@
 
 
                             <label for="other_info" class="form-label"> Other Info</label>
-                            <textarea name="other_info" class="form-control" rows="5">{!! isset($update_user_info) ? $update_user_info->other_info : '' !!}</textarea>
+                            <textarea name="other_info" class="form-control" rows="5">{!! isset($user_info) ? $user_info->other_info : '' !!}</textarea>
                             @error('other_info')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -52,7 +52,7 @@
 
 
                         <div class="text-end">
-                            @if (isset($update_user_info))
+                            @if (isset($user_info))
                                 <button type="submit" class="btn btn-sm btn-primary">Update</button>
                             @else
                                 <button type="submit" class="btn btn-sm btn-primary">Create</button>

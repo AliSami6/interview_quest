@@ -30,13 +30,13 @@ class UserInfoController extends Controller
         
     }
     public function UserInfoEdit($user_info){
-        $update_user_info = UserInfo::findOrFail($user_info);
-        return view('backend.user-info.form',compact('update_user_info'));
+        $user_info = UserInfo::findOrFail($user_info);
+        return view('backend.user-info.form',compact('user_info'));
     }
-    public function UserInfoUpdate(UserInfoRequest $request){
-          $update_user_info = UserInfo::findOrFail($request->update_id);
+    public function UserInfoUpdate(UserInfoRequest $request,$user_info){
+          $user_info = UserInfo::findOrFail($user_info);
 
-          $update_user_info->update([
+          $user_info->update([
              'name' => $request->name,
             'email'=>$request->email,
             'other_info'=>$request->other_info,
