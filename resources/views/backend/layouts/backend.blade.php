@@ -34,12 +34,20 @@
    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
               
             });
+        });
+    </script>
+
+     <script>
+        $(document).ready(function() {
+           $('.ckeditor').ckeditor();
         });
     </script>
 

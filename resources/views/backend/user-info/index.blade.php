@@ -13,7 +13,7 @@
     </div>
      <div class="card-body px-0">
         <div class="row">
-            <table class="table table-sm table-striped table-hover table-bordered-primary pt-2 mt-3" id="example">
+            <table class="table table-sm table-striped table-hover table-bordered-primary pt-2 ml-3" id="example">
                 <thead>
                     <th>SL</th>
                     <th>Name</th>
@@ -27,7 +27,7 @@
                             <td>{{ $loop->index+1 }}</td>
                             <td>{{ $value->name }}</td>
                             <td>{{ $value->email }}</td>
-                            <td>{{ $value->other_info }}</td>
+                            <td>{{str_replace(['{', '}'], '', $value->other_info)}}</td>
                             
                             <td>
                                 <div class="d-flex align-items-center">

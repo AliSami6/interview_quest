@@ -37,6 +37,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                         
 
                         <div class="mb-3">
 
@@ -52,8 +53,7 @@
                            @endphp
                         <div id="inputFormRow">
                             <div class="input-group mb-3">
-                                <input type="text" name="other_info[]" class="form-control m-input" value="{{ $update_user_info->other_info ?? old('other_info')}}"autocomplete="off">
-                                <span>&nbsp&nbsp</span><input type="text" name="other_info[]" value="{{$update_user_info->other_info ?? old('other_info') }}" class="form-control"
+                               <input type="text" name="other_info[]" value="{{$update_user_info->other_info ?? old('other_info') }}" class="form-control"
                                     autocomplete="off">
                                 <div class="input-group-append">
                                     <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
@@ -86,7 +86,7 @@
             html += '<div id="inputFormRow">';
             html += '<div class="input-group mb-3">';
             html +=
-                '<input type="text" name="other_info[]" class="form-control m-input"  autocomplete="off"><span>&nbsp&nbsp</span><input type="text" name="other_info[]" class="form-control m-input"  autocomplete="off">';
+                '<input type="text" name="other_info[]" class="form-control m-input"  autocomplete="off">';
             html += '<div class="input-group-append">';
             html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
             html += '</div>';
